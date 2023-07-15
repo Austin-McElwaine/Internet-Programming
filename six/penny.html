@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Math Forms</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<style>
+		h3 {
+			text-align: center;
+		}
+
+		body {
+			background-color: #dd99ff;
+			padding: .5em;
+		}
+
+		#formDiv {
+			margin-top: 1.5em;
+			font-size: 1.25em;
+
+		}
+
+		#displayArea {
+			background-color: #fff;
+			border-radius: 25px;
+			min-height: 15em;
+			text-align: center;
+			box-shadow: 7px 7px 0px #606060;
+			margin-top: 1.5em;
+			font-size: 1.25em;
+		}
+
+		#buttonArea {
+			text-align: center;
+			margin-top: 1em;
+		}
+
+		#buttonArea button {
+			width: 45%;
+			margin: .2em;
+		}
+	</style>
+
+	<script>
+		function doMath() {
+			var num1, dollar, quarter, dime, nickel, penny, other, outputStr;
+
+			num1 = Number(document.getElementById("numOneIn").value);
+			dollar = num1 / 100;
+			other = num1 % 100;
+			quarter = other / 25;
+			other = other % 25;
+			dime = other / 10;
+			other = other % 10;
+			nickel = other / 5;
+			other = other % 5;
+			penny = other;
+
+			outputStr = "<p>" + "dollar: " + "       " + Math.trunc(dollar) + "</p>"
+			outputStr += "<p>" + "quarter: " + "       " + Math.trunc(quarter) + "</p>"
+			outputStr += "<p>" + "dime: " + "       " + Math.trunc(dime) + "</p>"
+			outputStr += "<p>" + "nickel: " + "       " + Math.trunc(nickel) + "</p>"
+			outputStr += "<p>" + "penny: " + "       " + Math.trunc(penny) + "</p>"
+			document.getElementById("displayArea").innerHTML = outputStr;
+		}
+
+		function clearForm() {
+			var score1, score2, score3, outStr;
+
+			score1 = ""
+			score2 = ""
+			score3 = ""
+			outStr = "<p></p>"
+
+			document.getElementById("numOneIn").value = score1;
+			document.getElementById("numTwoIn").value = score2;
+			document.getElementById("numThreeIn").value = score3;
+			document.getElementById("displayArea").innerHTML = outStr;
+		}
+
+	</script>
+
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<h3>Convert</h3>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-4" id="formDiv">
+				<form>
+					<div class="form-group">
+						<label for="numOneIn">penny amount:</label>
+						<input type="number" class="form-control" placeholder="Enter a number" id="numOneIn" min="0"
+							max="100">
+					</div>
+					<div class="row">
+						<div class="col" id="buttonArea">
+							<button type="button" class="btn btn-outline-secondary"
+								onclick="doMath()">Calculate</button>
+							<button type="button" class="btn btn-outline-secondary" onclick="clearForm()">Clear</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-4" id="displayArea"></div>
+			<div class="col-md-2"></div>
+		</div>
+
+	</div>
+</body>
+
+</html>

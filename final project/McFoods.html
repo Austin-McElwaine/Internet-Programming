@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Changing a Page</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<style>
+		h3 {
+			text-align: center;
+		}
+
+		body {
+			background-color: #ff0000;
+			padding: .5em;
+		}
+
+		#displayArea {
+			background-color: #fff;
+			border-radius: 25px;
+			height: 15em;
+			text-align: center;
+			box-shadow: 7px 7px 5px #606060;
+			margin-top: 1.5em;
+		}
+
+		#totalArea {
+			background-color: #fff;
+			border-radius: 25px;
+			height: 15em;
+			text-align: center;
+			box-shadow: 7px 7px 5px #606060;
+			margin-top: 1.5em;
+		}
+
+		#costArea {
+			background-color: #fff;
+			border-radius: 25px;
+			height: 15em;
+			text-align: center;
+			box-shadow: 7px 7px 5px #606060;
+			margin-top: 1.5em;
+		}
+
+		#buttonArea {
+			text-align: center;
+			margin-top: 1.5em;
+		}
+
+		.fakeimg {
+			height: 30px;
+			width: auto;
+			background: #aaa;
+		}
+	</style>
+
+	<script>
+		let Total = 0
+		let space = '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'
+		let hcount = 0
+		let ccount = 0
+		let hotcount = 0
+		let pcount = 0
+		let ncount = 0
+		let fcount = 0
+		let encount = 0
+		let chipcount = 0
+		let candycount = 0
+		let wcount = 0
+		function hamburger() {
+			if (document.getElementById("check").checked == true) {
+				if (hcount < 1) {
+					window.alert("You can't have negative of an item")
+				}
+				else {
+					hcount--
+					Total -= 3.00
+					let hcost = hcount * 3.00
+					document.getElementById("costArea").innerHTML += "<p>" + hcount + space + "Hamburger" + space + "$" + hcost.toFixed(2) + "</p>"
+					reloadtheprice()
+				}
+			}
+			else {
+				hcount++
+				Total += 3.00
+				let hcost = hcount * 3.00
+				document.getElementById("costArea").innerHTML += hcount + space + "Hamburger" + space + "$" + hcost.toFixed(2) + "</p>"
+				reloadtheprice()
+			}
+		}
+		function cheeseburger() {
+
+			if (document.getElementById("check").checked == true) {
+				if (ccount < 1) {
+					window.alert("You can't have negative of an item")
+				}
+				else {
+					ccount--
+					Total -= 3.50
+					let ccost = ccount * 3.50
+					document.getElementById("costArea").innerHTML += "<p>" + ccount + space + "Cheese Burger" + space + "$" + ccost.toFixed(2) + "</p>"
+					reloadtheprice()
+				}
+			}
+			else {
+				ccount++
+				Total += 3.50
+				let ccost = ccount * 3.50
+				document.getElementById("costArea").innerHTML += "<p>" + ccount + space + "Cheese Burger" + space + "$" + ccost.toFixed(2) + "</p>"
+				reloadtheprice()
+			}
+		}
+		function hotdog() {
+			if (document.getElementById("check").checked == true) {
+				if (hotcount < 1) {
+					window.alert("You can't have negative of an item")
+				}
+				else {
+					hotcount--
+					Total -= 2.50
+					let hotcost = hotcount * 2.50
+					document.getElementById("costArea").innerHTML += "<p>" + hotcount + space + "Hot Dog" + space + "$" + hotcost.toFixed(2) + "</p>"
+					reloadtheprice()
+				}
+			}
+			else {
+				hotcount++
+				Total += 2.50
+				let hotcost = hotcount * 2.50
+				document.getElementById("costArea").innerHTML += "<p>" + hotcount + space + "Hot Dog" + space + "$" + hotcost.toFixed(2) + "</p>"
+				reloadtheprice()
+			}
+		}
+		function pizza() {
+			if (document.getElementById("check").checked == true) {
+				if (pcount < 1) {
+					window.alert("You can't have negative of an item")
+				}
+				else {
+					pcount--
+					Total -= 3.75
+					let pcost = pcount * 3.75
+					document.getElementById("costArea").innerHTML += "<p>" + pcount + space + "Pizza" + space + "$" + pcost.toFixed(2) + "</p>"
+					reloadtheprice()
+				}
+			}
+			else {
+				pcount++
+				Total += 3.75
+				let pcost = pcount * 3.75
+				document.getElementById("costArea").innerHTML += "<p>" + pcount + space + "Pizza" + space + "$" + pcost.toFixed(2) + "</p>"
+				reloadtheprice()
+			}
+		}
+		function nachos() {
+			if (document.getElementById("check").checked == true) {
+				if (ncount < 1) {
+					window.alert("You can't have negative of an item")
+				}
+				else {
+					ncount--
+					Total -= 3.25
+					let ncost = ncount * 3.25
+					document.getElementById("costArea").innerHTML += "<p>" + ncount + space + "Nachos" + space + "$" + ncost.toFixed(2) + "</p>"
+					reloadtheprice()
+				}
+			}
+			else {
+				ncount++
+				Total += 3.25
+				let ncost = ncount * 3.25
+				document.getElementById("costArea").innerHTML += "<p>" + ncount + space + "Nachos" + space + "$" + ncost.toFixed(2) + "</p>"
+				reloadtheprice()
+			}
+		}
+		function fries() {
+			if (document.getElementById("check").checked == true) {
+				if (fcount < 1) {
+					window.alert("You can't have negative of an item")
+				}
+				else {
+					fcount--
+					Total -= 1.50
+					let fcost = fcount * 1.50
+					document.getElementById("costArea").innerHTML += "<p>" + fcount + space + "Fries" + space + "$" + fcost.toFixed(2) + "</p>"
+					reloadtheprice()
+				}
+			}
+			else {
+				fcount++
+				Total += 1.50
+				let fcost = fcount * 1.50
+				document.getElementById("costArea").innerHTML += "<p>" + fcount + space + "Fries" + space + "$" + fcost.toFixed(2) + "</p>"
+				reloadtheprice()
+			}
+		}
+		function enacho() {
+			if (document.getElementById("check").checked == true) {
+				if (encount < 1) {
+					window.alert("You can't have negative of an item")
+				}
+				else {
+					encount--
+					Total -= 1.00
+					let encost = encount * 1.00
+					document.getElementById("costArea").innerHTML += "<p>" + encount + space + "Extra Nacho Cheese" + space + "$" + encost.toFixed(2) + "</p>"
+					reloadtheprice()
+				}
+			}
+			else {
+				encount++
+				Total += 1.00
+				let encost = encount * 1.00
+				document.getElementById("costArea").innerHTML += "<p>" + encount + space + "Extra Nacho Cheese" + space + "$" + encost.toFixed(2) + "</p>"
+				reloadtheprice()
+			}
+		}
+		function chips() {
+			if (document.getElementById("check").checked == true) {
+				if (chipcount < 1) {
+					window.alert("You can't have negative of an item")
+				}
+				else {
+					chipcount--
+					Total -= .75
+					let chipcost = chipcount * .75
+					document.getElementById("costArea").innerHTML += "<p>" + chipcount + space + "Chips" + space + "$" + chipcost.toFixed(2) + "</p>"
+					reloadtheprice()
+				}
+			}
+			else {
+				chipcount++
+				Total += .75
+				let chipcost = chipcount * .75
+				document.getElementById("costArea").innerHTML += "<p>" + chipcount + space + "Chips" + space + "$" + chipcost.toFixed(2) + "</p>"
+				reloadtheprice()
+			}
+		}
+		function candy() {
+			if (document.getElementById("check").checked == true) {
+				if (candycount < 1) {
+					window.alert("You can't have negative of an item")
+				}
+				else {
+					candycount--
+					Total -= 1.25
+					let candycost = candycount * 1.25
+					document.getElementById("costArea").innerHTML += "<p>" + candycount + space + "Candy" + space + "$" + candycost.toFixed(2) + "</p>"
+					reloadtheprice()
+				}
+			}
+			else {
+				candycount++
+				Total += 1.25
+				let candycost = candycount * 1.25
+				document.getElementById("costArea").innerHTML += "<p>" + candycount + space + "Candy" + space + "$" + candycost.toFixed(2) + "</p>"
+				reloadtheprice()
+			}
+		}
+		function water() {
+			if (document.getElementById("check").checked == true) {
+				if (wcount < 1) {
+					window.alert("You can't have negative of an item")
+				}
+				else {
+					wcount--
+					Total -= 1.75
+					let wcost = wcount * 1.75
+					document.getElementById("costArea").innerHTML += "<p>" + wcount + space + "Drink" + space + "$" + wcost.toFixed(2) + "</p>"
+					reloadtheprice()
+				}
+			}
+			else {
+				wcount++
+				Total += 1.75
+				let wcost = wcount * 1.75
+				document.getElementById("costArea").innerHTML += "<p>" + wcount + space + "Drink" + space + "$" + wcost.toFixed(2) + "</p>"
+				reloadtheprice()
+			}
+		}
+		function change() {
+			let amount = (document.getElementById("amount").value);
+			let change = amount - Total
+			if (amount < Total) {
+				window.alert("You must give more than what is owed")
+			}
+			else {
+				document.getElementById("change").setAttribute("placeholder", change.toFixed(2))
+			}
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<h3>McMac's McFoods</h3>
+		<div class="row">
+			<div class="col-sm-6" id="displayArea">
+				<button type="button" class="btn btn-outline-secondary" onclick="hamburger()">Hamburger $3.00 <img
+						src="burger.jpeg" class="fakeimg"></button>
+				<button type="button" class="btn btn-outline-secondary" onclick="hotdog()">Hot Dog $2.50<img
+						src="hotdog.png" class="fakeimg"></button>
+				<button type="button" class="btn btn-outline-secondary" onclick="nachos()">Nachos $3.25<img
+						src="nacho.webp" class="fakeimg"></button>
+				<button type="button" class="btn btn-outline-secondary" onclick="chips()">Chips $0.75<img
+						src="chips.jpeg" class="fakeimg"></button>
+				<button type="button" class="btn btn-outline-secondary" onclick="enacho()">Extra Nacho Cheese
+					$1.00 <img src="extracheese.webp" class="fakeimg"></button>
+				<button type="button" class="btn btn-outline-secondary" onclick="cheeseburger()">Cheeseburger
+					$3.50 <img src="cheeseburger.jpeg" class="fakeimg"></button>
+				<button type="button" class="btn btn-outline-secondary" onclick="pizza()">Pizza $3.75 <img
+						src="pizza.webp" class="fakeimg"></button>
+				<button type="button" class="btn btn-outline-secondary" onclick="fries()">Fries $1.50 <img src="fry.png"
+						class="fakeimg"></button>
+				<button type="button" class="btn btn-outline-secondary" onclick="candy()">Candy $1.25 <img
+						src="candy.webp" class="fakeimg"></button>
+				<button type="button" class="btn btn-outline-secondary" onclick="water()">Drink $1.75 <img
+						src="drink.jpeg" class="fakeimg"></button>
+				<p><input type="checkbox" name="Void" id="check">Void an item</input></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3" id="costArea">
+			</div>
+			<div class="col-sm-3" id="totalArea">
+				<div class="form-group">
+					<label for="Total">Total $:</label> <input type="number" readonly class="form-control" id="total">
+					<label for="amount">Amount Paid $:</label> <input type="number" class="form-control" id="amount">
+					<label for="change">Change $:</label> <input type="number" readonly class="form-control"
+						id="change">
+				</div>
+				<button type="reset" class="btn btn-outline-secondary" onclick="location.reload()">New Order</button>
+				<button type="button" class="btn btn-outline-secondary" onclick="change()">Change</button>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+<script>
+	function reloadtheprice() {
+		document.getElementById("total").setAttribute("placeholder", Total.toFixed(2))
+	}
+</script>
+
+</html>

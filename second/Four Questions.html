@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Super duper ask a question page</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<style>
+		h3 {
+			text-align: center;
+		}
+
+		body {
+			background-color: #99ccff;
+			padding: .5em;
+		}
+
+		#displayArea {
+			background-color: #fff;
+			border-radius: 25px;
+			height: 15em;
+			text-align: center;
+			box-shadow: 7px 7px 5px #606060;
+			margin-top: 1.5em;
+		}
+
+		#buttonArea {
+			text-align: center;
+			margin-top: 1.5em;
+		}
+	</style>
+
+	<script>
+		function fourQuestions() {
+			var name = window.prompt("What is your name: ", "");
+			var address = window.prompt("What is your address: ", "");
+			var password = window.prompt("What is your password: ", "");
+			var ssn = window.prompt("What is your ssn: ", "");
+			outputStr = "<p>Your name is " + name + ".</p>" + "<br>" + "<p>Your address is " + address + ".</p>" + "<br>" + "<p>Your password is " + password + ".</p>" + "<br>" + "<p>Your ssn is " + ssn + ".</p>";
+			document.getElementById('displayArea').innerHTML = outputStr;
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<h3>Ask a question page</h3>
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6" id="displayArea">
+				<p>Ignore this.</p>
+			</div>
+			<div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6" id="buttonArea">
+				<button type="button" class="btn btn-outline-secondary" onclick="fourQuestions()">Start
+					Question</button>
+			</div>
+			<div class="col-sm-3"></div>
+		</div>
+	</div>
+</body>
+
+</html>

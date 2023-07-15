@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Weather</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<style>
+		h3 {
+			text-align: center;
+		}
+
+		body {
+			background-color: #e44cdf;
+			padding: .5em;
+		}
+
+		#formDiv {
+			margin-top: 1.5em;
+			font-size: 1.25em;
+
+		}
+
+		#displayArea {
+			background-color: rgb(255, 255, 255);
+			border-radius: 25px;
+			min-height: 15em;
+			text-align: center;
+			margin-top: 1.5em;
+			font-size: 1.25em;
+		}
+
+		#buttonArea {
+			text-align: center;
+			margin-top: 1em;
+			background-color: rgb(255, 255, 255);
+		}
+
+		#buttonArea button {
+			width: 45%;
+			margin: .2em;
+			background-color: rgb(255, 255, 255);
+		}
+	</style>
+
+	<script>
+		var dispA
+		function weather() {
+			let rand = Math.floor(Math.random() * 5);
+			const img = [];
+			img[0] = '<img src="Clouds.png">' + 'Cloudy'
+			img[1] = '<img src="Rain.png">' + 'Rain'
+			img[2] = '<img src="Snow.png">' + 'Snow'
+			img[3] = '<img src="Storms.png">' + 'Storms'
+			img[4] = '<img src="Sunny.png">' + 'Sunny'
+
+			dispA = img[rand]
+			document.getElementById("displayArea").innerHTML = dispA;
+		}
+
+	</script>
+
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<h3>Weather</h3>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-4" id="formDiv">
+				<form>
+					<div class="row">
+						<div class="col" id="buttonArea">
+							<button type="button" id="button" class="btn btn-outline-secondary" onclick="weather()">Tell
+								me the weather mr.weatherman</button>
+
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-4" id="displayArea"></div>
+			<div class="col-md-2"></div>
+		</div>
+
+	</div>
+</body>
+
+</html>

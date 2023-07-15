@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Temperature</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<style>
+		h3 {
+			text-align: center;
+		}
+
+		body {
+			background-color: #e44cdf;
+			padding: .5em;
+		}
+
+		#formDiv {
+			margin-top: 1.5em;
+			font-size: 1.25em;
+
+		}
+
+		#displayArea {
+			background-color: rgb(255, 255, 255);
+			border-radius: 25px;
+			min-height: 15em;
+			text-align: center;
+			margin-top: 1.5em;
+			font-size: 1.25em;
+		}
+
+		#buttonArea {
+			text-align: center;
+			margin-top: 1em;
+			background-color: rgb(255, 255, 255);
+		}
+
+		#buttonArea button {
+			width: 45%;
+			margin: .2em;
+			background-color: rgb(255, 255, 255);
+		}
+
+		p:nth-child(odd) {
+			background-color: rgb(255, 153, 0);
+		}
+	</style>
+
+	<script>
+		let space = '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'
+		let CV = 0
+		let FV = 0
+		let op1
+		let op2
+		let dispA
+		let Fahrenheit
+		let Celsius
+		let i
+		function celsius() {
+			dispA = "Celsius" + space + "Fahrenheit"
+			CV = 0
+			FV = 0
+			do {
+				CV++
+				i++
+				Fahrenheit = (CV * 9 / 5) + 32
+				dispA += "<p>" + CV + space + Fahrenheit + "</p>"
+			} while (CV < 100)
+			document.getElementById("displayArea").innerHTML = dispA;
+		}
+		function fahrenheit() {
+			dispA = "Fahrenheit" + space + "Celsius"
+			CV = 0
+			FV = 0
+			do {
+				FV += 5
+				i++
+				Celsius = (FV - 32) * 5 / 9
+				dispA += "<p>" + FV + space + Celsius.toFixed(2) + "</p>"
+			} while (FV < 225)
+			document.getElementById("displayArea").innerHTML = dispA;
+		}
+
+	</script>
+
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<h3>Temperature</h3>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-4" id="formDiv">
+				<form>
+					<div class="row">
+						<div class="col" id="buttonArea">
+							<button type="button" id="button" class="btn btn-outline-secondary"
+								onclick="celsius()">Celsius</button>
+							<button type="button" id="button" class="btn btn-outline-secondary"
+								onclick="fahrenheit()">Fahrenheit</button>
+
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-4" id="displayArea"></div>
+			<div class="col-md-2"></div>
+		</div>
+
+	</div>
+</body>
+
+</html>

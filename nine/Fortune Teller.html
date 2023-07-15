@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Fortune Teller</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<style>
+		h3 {
+			text-align: center;
+		}
+
+		body {
+			background-color: #e44cdf;
+			padding: .5em;
+		}
+
+		#formDiv {
+			margin-top: 1.5em;
+			font-size: 1.25em;
+
+		}
+
+		#displayArea {
+			background-color: rgb(255, 255, 255);
+			border-radius: 25px;
+			min-height: 15em;
+			text-align: center;
+			margin-top: 1.5em;
+			font-size: 1.25em;
+		}
+
+		#buttonArea {
+			text-align: center;
+			margin-top: 1em;
+			background-color: rgb(255, 255, 255);
+		}
+
+		#buttonArea button {
+			width: 45%;
+			margin: .2em;
+			background-color: rgb(255, 255, 255);
+		}
+	</style>
+
+	<script>
+		var dispA
+		function future() {
+			let rand = Math.floor(Math.random() * 20);
+			const YesNo = [];
+			YesNo[0] = "It is Certain";
+			YesNo[1] = "It is decidedly so";
+			YesNo[2] = "Without a doubt";
+			YesNo[3] = "Yes definitely"
+			YesNo[4] = "You may rely on it";
+			YesNo[5] = "As I see it, yes";
+			YesNo[6] = "Most likely";
+			YesNo[7] = "Outlook good";
+			YesNo[8] = "Yes";
+			YesNo[9] = "Signs point to yes";
+			YesNo[10] = "Reply hazy, try again";
+			YesNo[11] = "Ask again later";
+			YesNo[12] = "Better not tell you now";
+			YesNo[13] = "Cannot predict now";
+			YesNo[14] = "Concentrate and ask again";
+			YesNo[15] = "Don't count on it";
+			YesNo[16] = "My reply is no";
+			YesNo[17] = "My sources say no";
+			YesNo[18] = "Outlook not so good";
+			YesNo[19] = "Very doubtful";
+			dispA = YesNo[rand]
+			document.getElementById("displayArea").innerHTML = dispA;
+		}
+
+		function fortune() {
+			let rand = Math.floor(Math.random() * 10);
+			const cookie = [];
+			cookie[0] = "Error 404: Fortune not found";
+			cookie[1] = "HELP, I'm being held prisoner in a Chinese factory";
+			cookie[2] = "You will eat a cookie"
+			cookie[3] = "If you eat something and nobody sees you eat it, it has not calories."
+			cookie[4] = "The fortune you seek is in another cookie"
+			cookie[5] = "To truly find yourself you should play hide and seek alone"
+			cookie[6] = "Come back later.... I am sleeping"
+			cookie[7] = "It could be better, but it's good enough"
+			cookie[8] = "It would be best to maintain a low profile for now"
+			cookie[9] = "Pass the bill to the person closest to you"
+			dispA = cookie[rand]
+			document.getElementById("displayArea").innerHTML = dispA;
+		}
+
+	</script>
+
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<h3>Fortune Teller</h3>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-4" id="formDiv">
+				<form>
+					<div class="row">
+						<div class="col" id="buttonArea">
+							<button type="button" id="button" class="btn btn-outline-secondary" onclick="fortune()">Tell
+								Me My Fortune!</button>
+
+							<button type="button" id="button" class="btn btn-outline-secondary"
+								onclick="future()">Yes/No</button>
+
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-4" id="displayArea"></div>
+			<div class="col-md-2"></div>
+		</div>
+
+	</div>
+</body>
+
+</html>

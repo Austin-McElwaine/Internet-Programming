@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Math Forms</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<style>
+		h3 {
+			text-align: center;
+		}
+
+		body {
+			background-color: #e44cdf;
+			padding: .5em;
+		}
+
+		#formDiv {
+			margin-top: 1.5em;
+			font-size: 1.25em;
+
+		}
+
+		#displayArea {
+			background-color: rgb(255, 255, 255);
+			border-radius: 25px;
+			min-height: 15em;
+			text-align: center;
+			margin-top: 1.5em;
+			font-size: 1.25em;
+		}
+
+		#buttonArea {
+			text-align: center;
+			margin-top: 1em;
+			background-color: rgb(255, 255, 255);
+		}
+
+		#buttonArea button {
+			width: 45%;
+			margin: .2em;
+			background-color: rgb(255, 255, 255);
+		}
+	</style>
+
+	<script>
+		let space = '\xa0'
+		let superspace = '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'
+		let rand;
+		let count = 1
+		var dispA
+		function reroll() {
+			rand = Math.floor(Math.random() * 100 + 1);
+			count = 1
+			document.getElementById("button").innerHTML = "Guess"
+			document.getElementById("button").onclick = GuessNum
+			dispA = "<p>" + "Attempt" + superspace + "Guess" + superspace + "Clue" + "</p>"
+			document.getElementById("displayArea").innerHTML = dispA;
+		}
+		function GuessNum() {
+			let Guess = document.getElementById("Guess").value;
+
+			if (Guess == rand) {
+				dispA += "<p>" + "Correct" + "</p>"
+				document.getElementById("button").innerHTML = "Play again";
+				document.getElementById("displayArea").innerHTML = dispA;
+			}
+			else if (Guess > rand) {
+				dispA += "<p style='color:blue;'>" + count + superspace + superspace + Guess + superspace + "Lower" + "</p>"
+				document.getElementById("displayArea").innerHTML = dispA;
+			}
+			else if (Guess < rand) {
+				dispA += "<p style='color:red;'>" + count + superspace + superspace + Guess + superspace + "Higher" + "</p>"
+				document.getElementById("displayArea").innerHTML = dispA;
+			}
+			count++
+			console.log(count)
+
+			if (count == 8) {
+				dispA += "<p>" + "The answer was " + space + rand + "</p>"
+				document.getElementById("button").innerHTML = "Play again";
+				document.getElementById("button").onclick = reroll
+				document.getElementById("displayArea").innerHTML = dispA;
+			}
+
+		}
+
+	</script>
+
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<h3>Math Practice</h3>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-4" id="formDiv">
+				<form>
+					<div class="form-group">
+						<label for="Guess">Guess:</label>
+						<input type="number" class="form-control" placeholder="Enter a number 1-100" id="Guess" min="0"
+							max="100">
+					</div>
+					<div class="row">
+						<div class="col" id="buttonArea">
+							<button type="button" id="button" class="btn btn-outline-secondary"
+								onclick="GuessNum()"></button>
+
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-4" id="displayArea"></div>
+			<div class="col-md-2"></div>
+		</div>
+
+	</div>
+</body>
+<script>
+	window.onload = reroll;
+</script>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Math Forms</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<style>
+		h3 {
+			text-align: center;
+		}
+
+		body {
+			background-color: #dd99ff;
+			padding: .5em;
+		}
+
+		#formDiv {
+			margin-top: 1.5em;
+			font-size: 1.25em;
+
+		}
+
+		#displayArea {
+			background-color: #fff;
+			border-radius: 25px;
+			min-height: 15em;
+			text-align: center;
+			box-shadow: 7px 7px 0px #606060;
+			margin-top: 1.5em;
+			font-size: 1.25em;
+		}
+
+		#buttonArea {
+			text-align: center;
+			margin-top: 1em;
+		}
+
+		#buttonArea button {
+			width: 45%;
+			margin: .2em;
+		}
+	</style>
+
+	<script>
+		function doMath() {
+			var num1, num2, num3, outputStr, avg;
+
+			num1 = Number(document.getElementById("numOneIn").value);
+			num2 = Number(document.getElementById("numTwoIn").value);
+			num3 = Number(document.getElementById("numThreeIn").value);
+			avg = (num1 + num2 + num3) / 3;
+
+			outputStr = "<p>" + "Test One: " + "       " + num1 + "</p>"
+			outputStr += "<p>" + "Test Two: " + "       " + num2 + "</p>"
+			outputStr += "<p>" + "Test Three: " + "       " + num3 + "</p>"
+			outputStr += "<p>" + "------------------------------------" + "</p>"
+			outputStr += "<p>" + "Average: " + "       " + avg + "</p>"
+			document.getElementById("displayArea").innerHTML = outputStr;
+		}
+
+		function clearForm() {
+			var score1, score2, score3, outStr;
+
+			score1 = ""
+			score2 = ""
+			score3 = ""
+			outStr = "<p>This will display your scores and their average!</p>"
+
+			document.getElementById("numOneIn").value = score1;
+			document.getElementById("numTwoIn").value = score2;
+			document.getElementById("numThreeIn").value = score3;
+			document.getElementById("displayArea").innerHTML = outStr;
+		}
+
+	</script>
+
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<h3>Average</h3>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-4" id="formDiv">
+				<form>
+					<div class="form-group">
+						<label for="numOneIn">Number:</label>
+						<input type="number" class="form-control" placeholder="Enter a number" id="numOneIn" min="0"
+							max="100">
+					</div>
+					<div class="form-group">
+						<label for="numTwoIn">Number:</label>
+						<input type="number" class="form-control" placeholder="Enter a number" id="numTwoIn" min="0"
+							max="100">
+					</div>
+					<div class="form-group">
+						<label for="numThreeIn">Number:</label>
+						<input type="number" class="form-control" placeholder="Enter a number" id="numThreeIn" min="0"
+							max="100">
+					</div>
+					<div class="row">
+						<div class="col" id="buttonArea">
+							<button type="button" class="btn btn-outline-secondary"
+								onclick="doMath()">Calculate</button>
+							<button type="button" class="btn btn-outline-secondary" onclick="clearForm()">Clear</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-4" id="displayArea"></div>
+			<div class="col-md-2"></div>
+		</div>
+
+	</div>
+</body>
+
+</html>

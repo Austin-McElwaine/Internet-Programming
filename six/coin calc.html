@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Math Forms</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<style>
+		h3 {
+			text-align: center;
+		}
+
+		body {
+			background-color: #dd99ff;
+			padding: .5em;
+		}
+
+		#formDiv {
+			margin-top: 1.5em;
+			font-size: 1.25em;
+
+		}
+
+		#displayArea {
+			background-color: #fff;
+			border-radius: 25px;
+			min-height: 15em;
+			text-align: center;
+			box-shadow: 7px 7px 0px #606060;
+			margin-top: 1.5em;
+			font-size: 1.25em;
+		}
+
+		#buttonArea {
+			text-align: center;
+			margin-top: 1em;
+		}
+
+		#buttonArea button {
+			width: 45%;
+			margin: .2em;
+			
+
+		}
+	</style>
+
+	<script>
+		function doMath() {
+			var num1, dollar, quarter, dime, nickel, penny, outputStr, Total, space;
+
+			num1 = Number(document.getElementById("numOneIn").value);
+			num2 = Number(document.getElementById("numTwoIn").value);
+			num3 = Number(document.getElementById("numThreeIn").value);
+			num4 = Number(document.getElementById("numFourIn").value);
+			num5 = Number(document.getElementById("numFiveIn").value);
+			space = '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'
+			dollar = num1 * 1;
+			quarter = num2 * .25;
+			dime = num3 * .10;
+			nickel = num4 * .05;
+			penny = num5 * .01
+			Total = dollar + quarter + dime + nickel + penny 
+			outputStr = "<p>" + "dollar: " + "       " + num1 + space + "$" + dollar.toFixed(2) + "</p>"
+			outputStr += "<p>" + "quarter: " + "       " + num2 + space + "$" + quarter.toFixed(2) + "</p>"
+			outputStr += "<p>" + "dime: " + "       " + num3 + space + "$" + dime.toFixed(2) + "</p>"
+			outputStr += "<p>" + "nickel: " + "       " + num4 + space + "$" + nickel.toFixed(2) + "</p>"
+			outputStr += "<p>" + "penny: " + "       " + num5 + space + "$" + penny.toFixed(2) + "</p>"
+			outputStr += "<p>" + "Total: " + space + "$" + Total.toFixed(2) + "</p>"
+			document.getElementById("displayArea").innerHTML = outputStr;
+		}
+
+		function clearForm() {
+			var score1, score2, score3, score4, score5, outStr;
+
+			score1 = ""
+			score2 = ""
+			score3 = ""
+			score4 = ""
+			score5 = ""
+			outStr = "<p></p>"
+
+			document.getElementById("numOneIn").value = score1;
+			document.getElementById("numTwoIn").value = score2;
+			document.getElementById("numThreeIn").value = score3;
+			document.getElementById("numFourIn").value = score4;
+			document.getElementById("numFiveIn").value = score5;
+			document.getElementById("displayArea").innerHTML = outStr;
+		}
+
+	</script>
+
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<h3>Convert</h3>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-4" id="formDiv">
+				<form>
+					<div class="form-group">
+						<label for="numOneIn">Dollar:</label>
+						<input type="number" class="form-control" placeholder="Enter a number" id="numOneIn" min="0"
+							max="100">
+						<label for="numTwoIn">Quarter:</label>
+						<input type="number" class="form-control" placeholder="Enter a number" id="numTwoIn" min="0"
+							max="100">
+						<label for="numThreeIn">Dime:</label>
+						<input type="number" class="form-control" placeholder="Enter a number" id="numThreeIn" min="0"
+							max="100">
+						<label for="numFourIn">Nickel:</label>
+						<input type="number" class="form-control" placeholder="Enter a number" id="numFourIn" min="0"
+							max="100">
+						<label for="numFiveIn">Penny:</label>
+						<input type="number" class="form-control" placeholder="Enter a number" id="numFiveIn" min="0"
+							max="100">
+					</div>
+					<div class="row">
+						<div class="col" id="buttonArea">
+							<button type="button" class="btn btn-outline-secondary"
+								onclick="doMath()">Calculate</button>
+							<button type="button" class="btn btn-outline-secondary" onclick="clearForm()">Clear</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-4" id="displayArea"></div>
+			<div class="col-md-2"></div>
+		</div>
+
+	</div>
+</body>
+
+</html>

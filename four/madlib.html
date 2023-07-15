@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Changing a Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    h3 {
+      text-align: center;
+    }
+
+    body {
+      background-color: #903939;
+      padding: .5em;
+    }
+
+    #displayArea {
+      background-color: #fff;
+      border-radius: 25px;
+      height: 15em;
+      text-align: center;
+      box-shadow: 7px 7px 5px #fdf5f5;
+      margin-top: 1.5em;
+    }
+
+    #buttonArea {
+      text-align: center;
+      margin-top: 1.5em;
+    }
+  </style>
+
+  <script>
+    function processForm() {
+      const verb1 = document.getElementById("verb1");
+      const verb2 = document.getElementById("verb2");
+      const adjective1 = document.getElementById("adjective1");
+      const noun1 = document.getElementById("noun1");
+      const verb3 = document.getElementById("verb3");
+      const adjective2 = document.getElementById("adjective2");
+      const noun2 = document.getElementById("noun2");
+      const verb4 = document.getElementById("verb4");
+      const verb5 = document.getElementById("verb5");
+      const verb6 = document.getElementById("verb6");
+      const noun3 = document.getElementById("noun3");
+      const noun4 = document.getElementById("noun4");
+      const noun5 = document.getElementById("noun5");
+      const noun6 = document.getElementById("noun6");
+
+      const outputStr = "Every night before I " + verb1.value + " to sleep, I swear I can " + verb2.value + " noises in my closet. It sounds like a " + adjective1.value + " " + noun1.value + " is " + verb3.value + " in there and it's so " + adjective2.value + "! When I call my mom and " + noun2.value + ", they never " + verb4.value + " anything. So I " + verb5.value + " off the lights and try to " + verb6.value + ". That's when the " + noun3.value + " start under my " + noun4.value + ". Is it a monster, or something else, like a " + noun5.value + " or maybe even a " + noun6.value + "?";
+
+      document.getElementById("displayArea").innerHTML = outputStr;
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <h3>Using JavaScript to Modify a Webpage</h3>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-4" id="formDiv">
+        <form>
+          <div class="form-group">
+            <label for="verb1">Verb:</label>
+            <input type="text" class="form-control" id="verb1" placeholder="verb" name="verb1">
+          </div>
+          <div class="form-group">
+            <label for="verb2">Verb:</label>
+            <input type="text" class="form-control" id="verb2" placeholder="verb" name="verb2">
+          </div>
+          <div class="form-group">
+            <label for="adjective1">adjective:</label>
+            <input type="text" class="form-control" id="adjective1" placeholder="adjective" name="adjective1">
+          </div>
+          <div class="form-group">
+            <label for="noun1">noun:</label>
+            <input type="text" class="form-control" id="noun1" placeholder="noun" name="noun1">
+          </div>
+          <div class="form-group">
+            <label for="verb3">verb:</label>
+            <input type="text" class="form-control" id="verb3" placeholder="verb" name="verb3">
+          </div>
+          <div class="form-group">
+            <label for="adjective2">adjective:</label>
+            <input type="text" class="form-control" id="adjective2" placeholder="adjective" name="adjective2">
+          </div>
+          <div class="form-group">
+            <label for="noun2">noun:</label>
+            <input type="text" class="form-control" id="noun2" placeholder="noun" name="noun2">
+          </div>
+          <div class="form-group">
+            <label for="verb4">verb:</label>
+            <input type="text" class="form-control" id="verb4" placeholder="verb" name="verb4">
+          </div>
+          <div class="form-group">
+            <label for="verb5">verb:</label>
+            <input type="text" class="form-control" id="verb5" placeholder="verb" name="verb5">
+          </div>
+          <div class="form-group">
+            <label for="verb6">verb:</label>
+            <input type="text" class="form-control" id="verb6" placeholder="verb" name="verb6">
+          </div>
+          <div class="form-group">
+            <label for="noun3">noun:</label>
+            <input type="text" class="form-control" id="noun3" placeholder="noun" name="noun3">
+          </div>
+          <div class="form-group">
+            <label for="noun4">noun:</label>
+            <input type="text" class="form-control" id="noun4" placeholder="noun" name="noun4">
+          </div>
+          <div class="form-group">
+            <label for="noun5">noun:</label>
+            <input type="text" class="form-control" id="noun5" placeholder="noun" name="noun5">
+          </div>
+          <div class="form-group">
+            <label for="noun6">noun:</label>
+            <input type="text" class="form-control" id="noun6" placeholder="noun" name="noun6">
+          </div>
+          <button type="button" class="btn btn-secondary" onclick="processForm()">Process Form</button>
+        </form>
+      </div>
+      <div class="col-md-4" id="displayArea">
+        <p>Output will go here</p>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>

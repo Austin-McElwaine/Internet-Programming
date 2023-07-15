@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Math Forms</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<style>
+		h3 {
+			text-align: center;
+		}
+
+		body {
+			background-color: #dd99ff;
+			padding: .5em;
+		}
+
+		#formDiv {
+			margin-top: 1.5em;
+			font-size: 1.25em;
+
+		}
+
+		#displayArea {
+			background-color: #fff;
+			border-radius: 25px;
+			min-height: 15em;
+			text-align: center;
+			box-shadow: 7px 7px 0px #606060;
+			margin-top: 1.5em;
+			font-size: 1.25em;
+		}
+
+		#buttonArea {
+			text-align: center;
+			margin-top: 1em;
+		}
+
+		#buttonArea button {
+			width: 45%;
+			margin: .2em;
+		}
+	</style>
+
+	<script>
+		function doMath() {
+			var num1, num2, sum, diff, prod, quot, rem, outputStr
+
+			num1 = document.getElementById("numOneIn").value
+			num2 = document.getElementById("numTwoIn").value
+
+			sum = num1 + num2
+			diff = num1 - num2
+			prod = num1 * num2
+			quot = num1 / num2
+			rem = num1 % num2
+
+			outputStr = "<p>" + num1 + " + " + num2 + " = " + sum + "</p>"
+			outputStr += "<p>" + num1 + " - " + num2 + " = " + diff + "</p>"
+			outputStr += "<p>" + num1 + " * " + num2 + " = " + prod + "</p>"
+			outputStr += "<p>" + num1 + " / " + num2 + " = " + quot.toFixed(2) + "</p>"
+			outputStr += "<p>" + num1 + " % " + num2 + " = " + rem + "</p>"
+
+			document.getElementById("displayArea").innerHTML = outputStr
+		}
+
+		function doNumberMath() {
+			var num1, num2, sum, diff, prod, quot, rem, outputStr
+
+			num1 = Number(document.getElementById("numOneIn").value)
+			num2 = Number(document.getElementById("numTwoIn").value)
+
+			sum = num1 + num2
+			diff = num1 - num2
+			prod = num1 * num2
+			quot = num1 / num2
+			rem = num1 % num2
+
+			outputStr = "<p>" + num1 + " + " + num2 + " = " + sum + "</p>"
+			outputStr += "<p>" + num1 + " - " + num2 + " = " + diff + "</p>"
+			outputStr += "<p>" + num1 + " * " + num2 + " = " + prod + "</p>"
+			outputStr += "<p>" + num1 + " / " + num2 + " = " + quot.toFixed(2) + "</p>"
+			outputStr += "<p>" + num1 + " % " + num2 + " = " + rem + "</p>"
+
+			document.getElementById("displayArea").innerHTML = outputStr
+		}
+
+		function doIntMath() {
+			var num1, num2, sum, diff, prod, quot, rem, outputStr
+
+			num1 = document.getElementById("numOneIn").value | 0
+			num2 = document.getElementById("numTwoIn").value | 0
+
+			sum = num1 + num2
+			diff = num1 - num2
+			prod = num1 * num2
+			quot = num1 / num2
+			rem = num1 % num2
+
+			outputStr = "<p>" + num1 + " + " + num2 + " = " + sum + "</p>"
+			outputStr += "<p>" + num1 + " - " + num2 + " = " + diff + "</p>"
+			outputStr += "<p>" + num1 + " * " + num2 + " = " + prod + "</p>"
+			outputStr += "<p>" + num1 + " / " + num2 + " = " + quot.toFixed(2) + "</p>"
+			outputStr += "<p>" + num1 + " % " + num2 + " = " + rem + "</p>"
+
+			document.getElementById("displayArea").innerHTML = outputStr
+		}
+
+		function doFloatMath() {
+			var num1, num2, sum, diff, prod, quot, rem, outputStr
+
+			num1 = parseFloat(document.getElementById("numOneIn").value)
+			num2 = parseFloat(document.getElementById("numTwoIn").value)
+
+			sum = num1 + num2
+			diff = num1 - num2
+			prod = num1 * num2
+			quot = num1 / num2
+			rem = num1 % num2
+
+			outputStr = "<p>" + num1 + " + " + num2 + " = " + sum + "</p>"
+			outputStr += "<p>" + num1 + " - " + num2 + " = " + diff + "</p>"
+			outputStr += "<p>" + num1 + " * " + num2 + " = " + prod + "</p>"
+			outputStr += "<p>" + num1 + " / " + num2 + " = " + quot.toFixed(2) + "</p>"
+			outputStr += "<p>" + num1 + " % " + num2 + " = " + rem + "</p>"
+
+			document.getElementById("displayArea").innerHTML = outputStr
+		}
+
+	</script>
+
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<h3>Math with Number Inputs</h3>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-4" id="formDiv">
+				<form>
+					<div class="form-group">
+						<label for="numOneIn">Number:</label>
+						<input type="number" class="form-control" placeholder="Enter a number" id="numOneIn" min="0"
+							max="100">
+					</div>
+					<div class="form-group">
+						<label for="numTwoIn">Number:</label>
+						<input type="number" class="form-control" placeholder="Enter a number" id="numTwoIn" min="0"
+							max="100">
+					</div>
+					<div class="row">
+						<div class="col" id="buttonArea">
+							<button type="button" class="btn btn-outline-secondary" onclick="doMath()">Do Math</button>
+							<button type="button" class="btn btn-outline-secondary" onclick="doNumberMath()">Do Math
+								'Number'</button>
+							<button type="button" class="btn btn-outline-secondary" onclick="doIntMath()">Do Math
+								'Integer'</button>
+							<button type="button" class="btn btn-outline-secondary" onclick="doFloatMath()">Do Math
+								'Float'</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-4" id="displayArea"></div>
+			<div class="col-md-2"></div>
+		</div>
+
+	</div>
+</body>
+
+</html>

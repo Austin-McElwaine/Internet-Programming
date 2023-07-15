@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Average</title>
+	<style>
+		body {
+			font-family: arial;
+			font-size: 14pt;
+			background: #e6f2ff;
+		}
+
+		table {
+			margin-right: auto;
+			margin-left: auto;
+			width: 40%;
+			background: white;
+			padding: 20px;
+			border: solid blue 2px;
+			border-radius: 25px;
+			box-shadow: 7px 7px 5px #afafaf;
+		}
+
+		th,
+		td {
+			width: 50%;
+		}
+
+		h1 {
+			text-align: center;
+			color: blue;
+			text-shadow: 3px 3px 1px #afafaf;
+		}
+
+		input {
+			width: 200px;
+			height: 30px;
+			font-size: 14pt;
+			text-align: center;
+		}
+	</style>
+	<script>
+		function doMath() {
+			var num1, num2, num3, outputStr, assign, test, project, final, letter;
+
+			num1 = Number(document.getElementById("assignIn").value);
+			num2 = Number(document.getElementById("testsIn").value);
+			num3 = Number(document.getElementById("projectIn").value);
+			assign = num1 * .30
+			test = num2 * .30
+			project = num3 * .40
+
+			final = assign + test + project
+			if (final > 100) {
+				letter = "enter valid number"
+			}
+			if (final >= 90 && final <= 100) {
+				letter = "A"
+			}
+			if (final >= 80 && final < 90) {
+				letter = "B"
+			}
+			if (final >= 70 && final < 80) {
+				letter = "C"
+			}
+			if (final >= 60 && final < 70) {
+				letter = "D"
+			}
+			if (final < 60) {
+				letter = "F"
+			}
+			document.getElementById("averageOut").value = final.toFixed(1);
+			document.getElementById("letterGrade").value = letter;
+		}
+	</script>
+</head>
+
+<body>
+	<h1>Grade Calculator</h1>
+	<form id="gradeForm">
+		<table>
+			<tr>
+				<th>Assignments:</th>
+				<th><input type="number" id="assignIn"></th>
+			</tr>
+			<tr>
+				<th>Tests:</th>
+				<th><input type="number" id="testsIn"></th>
+			</tr>
+			<tr>
+				<th>Project:</th>
+				<th><input type="number" id="projectIn"></th>
+			</tr>
+			<tr>
+				<th><input type="button" value="Calculate" id="btnCalc" onclick="doMath()"></th>
+				<th><input type="reset" value="Reset"></th>
+			</tr>
+			<tr>
+				<th>Average:</th>
+				<th><input type="number" id="averageOut" readonly /></th>
+			</tr>
+			<tr>
+				<th>Letter Grade:</th>
+				<th><input type="letter" id="letterGrade" readonly /></th>
+			</tr>
+		</table>
+	</form>
+
+</body>
+
+</html>

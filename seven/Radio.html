@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Changing a Page</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<style>
+		h3 {
+			text-align: center;
+		}
+
+		body {
+			background-color: #99ccff;
+			padding: .5em;
+		}
+
+		#displayArea {
+			background-color: #fff;
+			border-radius: 25px;
+			height: 15em;
+			text-align: center;
+			box-shadow: 7px 7px 5px #606060;
+			margin-top: 1.5em;
+		}
+
+		#buttonArea {
+			text-align: center;
+			margin-top: 1.5em;
+		}
+	</style>
+	<script>
+		let img;
+		function image(Stonk) {
+			let outputStr = ""
+			switch (Stonk) {
+				case "0":
+					outputStr = '<img src="stonk1.jpeg">'
+					break;
+				case "1":
+					outputStr = '<img src="stonk2.jpeg">'
+					break;
+				case "2":
+					outputStr = '<img src="stonk3.jpg">'
+					break;
+				case "3":
+					outputStr = '<img src="stonk4.jpeg">'
+					break;
+			}
+			document.getElementById("displayArea").innerHTML = outputStr
+
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<h3>Image</h3>
+		<div class="row">
+			<div class="col-sm-3"></div>
+
+			<div class="col-sm-3" id="displayArea"></div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6" id="buttonArea">
+				<input type="radio" name="Stonk" value="0" onClick=image(this.value) checked>
+				<input type="radio" name="Stonk" value="1" onClick=image(this.value)>
+				<input type="radio" name="Stonk" value="2" onClick=image(this.value)>
+				<input type="radio" name="Stonk" value="3" onClick=image(this.value)>
+			</div>
+			<div class="col-sm-3" onload="image(Stock)"></div>
+		</div>
+	</div>
+</body>
+
+</html>

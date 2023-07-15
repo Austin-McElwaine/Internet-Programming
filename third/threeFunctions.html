@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Changing a Page</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<style>
+		h3 {
+			text-align: center;
+		}
+
+		body {
+			background-color: #903939;
+			padding: .5em;
+		}
+
+		#displayArea {
+			background-color: #fff;
+			border-radius: 25px;
+			height: 15em;
+			text-align: center;
+			box-shadow: 7px 7px 5px #fdf5f5;
+			margin-top: 1.5em;
+		}
+
+		#buttonArea {
+			text-align: center;
+			margin-top: 1.5em;
+		}
+	</style>
+
+	<script>
+		function changeText() {
+			var myName = window.prompt("What is your name?", "Austin McElwaine");
+			var myOccupation = "Student";
+			var mySchool = "State Tech";
+
+			var outputStr = "<p>Hello. My name is " + myName + ". I am a " + myOccupation + " at " + mySchool + ".</p>";
+
+			document.getElementById("displayArea").innerHTML = outputStr;
+		}
+
+		function showPic() {
+			document.getElementById("displayArea").innerHTML = '<img src="Stonk.jpg" alt="stonk">'
+		}
+
+		function doMath(n1, n2) {
+			var sum, prod, quot, diff, rem, outputStr;
+			sum = n1 + n2;
+			prod = n1 * n2;
+			quot = n1 / n2;
+			diff = n1 - n2;
+			rem = n1 % n2;
+
+			outputStr = "<p>" + n1 + " + " + n2 + " = " + sum + "</p>";
+			outputStr += "<p>" + n1 + " * " + n2 + " = " + prod + "</p>";
+			outputStr += "<p>" + n1 + " / " + n2 + " = " + quot + "</p>";
+			outputStr += "<p>" + n1 + " - " + n2 + " = " + diff + "</p>";
+			outputStr += "<p>" + n1 + " % " + n2 + " = " + rem + "</p>";
+
+			document.getElementById("displayArea").innerHTML = outputStr;
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<h3>Using JavaScript to Modify a Webpage</h3>
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6" id="displayArea">
+				<p>This is my display area. I can use JavaScript to change its contents.</p>
+			</div>
+			<div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6" id="buttonArea">
+				<button type="button" class="btn btn-outline-secondary" onclick="changeText()">Change Text</button>
+				<button type="button" class="btn btn-outline-secondary" onclick="showPic()">Show Pic</button>
+				<button type="button" class="btn btn-outline-secondary" onclick="doMath(15,4)">Do Math</button>
+			</div>
+			<div class="col-sm-3"></div>
+		</div>
+	</div>
+</body>
+
+</html>

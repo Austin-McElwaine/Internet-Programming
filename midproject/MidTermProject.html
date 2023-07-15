@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Math Forms</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<style>
+		h3 {
+			text-align: center;
+		}
+
+		body {
+			background-color: #a400f6;
+			padding: .5em;
+		}
+
+		#formDiv {
+			margin-top: 1.5em;
+			font-size: 1.25em;
+
+		}
+
+		#displayArea {
+			background-color: rgb(9, 255, 0);
+			border-radius: 25px;
+			min-height: 15em;
+			text-align: center;
+			margin-top: 1.5em;
+			font-size: 1.25em;
+		}
+
+		#buttonArea {
+			text-align: center;
+			margin-top: 1em;
+			background-color: rgb(9, 255, 0);
+		}
+
+		#buttonArea button {
+			width: 45%;
+			margin: .2em;
+			background-color: rgb(9, 255, 0);
+		}
+	</style>
+
+	<script>
+		let space = '\xa0'
+		let rand1;
+		let rand2;
+		let ans;
+		let q;
+		let count = 0
+		let countw = 0
+		let num1
+		let num2
+		let aans = num1 + num2
+		let mans = num1 * num2
+		function reroll() {
+			rand1 = Math.floor(Math.random() * 12 + 1);
+			rand2 = Math.floor(Math.random() * 12 + 1);
+
+		}
+		function doAdd() {
+			num1 = rand1
+			num2 = rand2
+			ans = num1 + num2
+			aans = num1 + num2
+			q = document.getElementById("displayArea").innerHTML = num1 + space + "+" + space + num2 + space + "=" + space 
+		}
+		function doSub() {
+			num1 = rand1
+			num2 = rand2
+			aans = num1 + num2
+			ans = aans - num2
+			q = document.getElementById("displayArea").innerHTML = aans + space + "-" + space + num2 + space + "=" + space 
+		}
+		function doDiv() {
+			num1 = rand1
+			num2 = rand2
+			mans = num1 * num2
+			ans = mans / num2
+			q = document.getElementById("displayArea").innerHTML = mans + space + "/" + space + num2 + space + "=" + space 
+
+		}
+		function doMulti() {
+			num1 = rand1
+			num2 = rand2
+			ans = num1 * num2
+			mans = num1 * num2
+			q = document.getElementById("displayArea").innerHTML = num1 + space + "*" + space + num2 + space + "=" + space 
+		}
+		function solve() {
+			let userans = document.getElementById("numOneIn").value;
+			if (userans == ans) {
+				document.getElementById("displayArea").innerHTML = "Correct, Generate A New Question!"
+				count++
+				reroll()
+			}
+			else {
+				document.getElementById("displayArea").innerHTML = "Wrong, try again, what is" + space + q
+				countw++
+			}
+			document.getElementById("Wrong&Right").value = "Wrong:" + space + countw + space + "Correct:" + space + count;
+		}
+
+
+	</script>
+
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<h3>Math Practice</h3>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-4" id="formDiv">
+				<form>
+					<div class="form-group">
+						<label for="numOneIn">Answer:</label>
+						<input type="number" class="form-control" placeholder="Enter a number" id="numOneIn" min="0"
+							max="100">
+					</div>
+					<div class="row">
+						<div class="col" id="buttonArea">
+							<button type="button" class="btn btn-outline-secondary" onclick="doAdd(); reroll()">Addition
+								problem</button>
+							<button type="button" class="btn btn-outline-secondary" onclick="doSub(); reroll()">Subtraction
+								problem</button>
+							<button type="button" class="btn btn-outline-secondary" onclick="doDiv(); reroll()">Division
+								problem</button>
+							<button type="button" class="btn btn-outline-secondary" onclick="doMulti(); reroll()">Multiplication
+								problem</button>
+							<button type="button" class="btn btn-outline-secondary" onclick="solve()">Solve
+								problem</button>
+
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="Wrong&Right">Display of Wrong and Right</label>
+						<input class="form-control" id="Wrong&Right">
+					</div>
+				</form>
+			</div>
+			<div class="col-md-4" id="displayArea"></div>
+			<div class="col-md-2"></div>
+		</div>
+
+	</div>
+</body>
+<script>
+	document.getElementById("displayArea").innerHTML = "Push a problem button to get started"
+	window.onload = reroll;
+</script>
+
+</html>
